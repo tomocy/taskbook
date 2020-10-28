@@ -196,27 +196,25 @@ class Render {
   }
 
   invalidCustomAppDir(path) {
-    const [prefix, suffix] = ['\n', red(path)];
+    const suffix = red(path);
     const message = 'Custom app directory was not found on your system:';
-    error({ prefix, message, suffix });
+    error({ message, suffix });
   }
 
   invalidID(id) {
-    const [prefix, suffix] = ['\n', grey(id)];
+    const suffix = grey(id);
     const message = 'Unable to find item with id:';
-    error({ prefix, message, suffix });
+    error({ message, suffix });
   }
 
   invalidIDsNumber() {
-    const prefix = '\n';
     const message = 'More than one ids were given as input';
-    error({ prefix, message });
+    error({ message });
   }
 
   invalidPriority() {
-    const prefix = '\n';
     const message = 'Priority can only be 1, 2 or 3';
-    error({ prefix, message });
+    error({ message });
   }
 
   markComplete(ids) {
@@ -224,9 +222,9 @@ class Render {
       return;
     }
 
-    const [prefix, suffix] = ['\n', grey(ids.join(', '))];
+    const suffix = grey(ids.join(', '));
     const message = `Checked ${ids.length > 1 ? 'tasks' : 'task'}:`;
-    success({ prefix, message, suffix });
+    success({ message, suffix });
   }
 
   markIncomplete(ids) {
@@ -234,9 +232,9 @@ class Render {
       return;
     }
 
-    const [prefix, suffix] = ['\n', grey(ids.join(', '))];
+    const suffix = grey(ids.join(', '));
     const message = `Unchecked ${ids.length > 1 ? 'tasks' : 'task'}:`;
-    success({ prefix, message, suffix });
+    success({ message, suffix });
   }
 
   markStarted(ids) {
@@ -244,9 +242,9 @@ class Render {
       return;
     }
 
-    const [prefix, suffix] = ['\n', grey(ids.join(', '))];
+    const suffix = grey(ids.join(', '));
     const message = `Started ${ids.length > 1 ? 'tasks' : 'task'}:`;
-    success({ prefix, message, suffix });
+    success({ message, suffix });
   }
 
   markPaused(ids) {
@@ -254,9 +252,9 @@ class Render {
       return;
     }
 
-    const [prefix, suffix] = ['\n', grey(ids.join(', '))];
+    const suffix = grey(ids.join(', '));
     const message = `Paused ${ids.length > 1 ? 'tasks' : 'task'}:`;
-    success({ prefix, message, suffix });
+    success({ message, suffix });
   }
 
   markStarred(ids) {
@@ -264,9 +262,9 @@ class Render {
       return;
     }
 
-    const [prefix, suffix] = ['\n', grey(ids.join(', '))];
+    const suffix = grey(ids.join(', '));
     const message = `Starred ${ids.length > 1 ? 'items' : 'item'}:`;
-    success({ prefix, message, suffix });
+    success({ message, suffix });
   }
 
   markUnstarred(ids) {
@@ -274,70 +272,66 @@ class Render {
       return;
     }
 
-    const [prefix, suffix] = ['\n', grey(ids.join(', '))];
+    const suffix = grey(ids.join(', '));
     const message = `Unstarred ${ids.length > 1 ? 'items' : 'item'}:`;
-    success({ prefix, message, suffix });
+    success({ message, suffix });
   }
 
   missingBoards() {
-    const prefix = '\n';
     const message = 'No boards were given as input';
-    error({ prefix, message });
+    error({ message });
   }
 
   missingDesc() {
-    const prefix = '\n';
     const message = 'No description was given as input';
-    error({ prefix, message });
+    error({ message });
   }
 
   missingID() {
-    const prefix = '\n';
     const message = 'No id was given as input';
-    error({ prefix, message });
+    error({ message });
   }
 
   successCreate({ _id, _isTask }) {
-    const [prefix, suffix] = ['\n', grey(_id)];
+    const suffix = grey(_id);
     const message = `Created ${_isTask ? 'task:' : 'note:'}`;
-    success({ prefix, message, suffix });
+    success({ message, suffix });
   }
 
   successEdit(id) {
-    const [prefix, suffix] = ['\n', grey(id)];
+    const suffix = grey(id);
     const message = 'Updated description of item:';
-    success({ prefix, message, suffix });
+    success({ message, suffix });
   }
 
   successDelete(ids) {
-    const [prefix, suffix] = ['\n', grey(ids.join(', '))];
+    const suffix = grey(ids.join(', '));
     const message = `Deleted ${ids.length > 1 ? 'items' : 'item'}:`;
-    success({ prefix, message, suffix });
+    success({ message, suffix });
   }
 
   successMove(id, boards) {
-    const [prefix, suffix] = ['\n', grey(boards.join(', '))];
+    const suffix = grey(boards.join(', '));
     const message = `Move item: ${grey(id)} to`;
-    success({ prefix, message, suffix });
+    success({ message, suffix });
   }
 
   successPriority(id, level) {
-    const prefix = '\n';
     const message = `Updated priority of task: ${grey(id)} to`;
     const suffix = level === '3' ? red('high') : (level === '2' ? yellow('medium') : green('normal'));
-    success({ prefix, message, suffix });
+    success({ message, suffix });
   }
 
   successRestore(ids) {
-    const [prefix, suffix] = ['\n', grey(ids.join(', '))];
+    const suffix = grey(ids.join(', '));
     const message = `Restored ${ids.length > 1 ? 'items' : 'item'}:`;
-    success({ prefix, message, suffix });
+    success({ message, suffix });
   }
 
   successCopyToClipboard(ids) {
-    const [prefix, suffix] = ['\n', grey(ids.join(', '))];
+    const suffix = grey(ids.join(', '));
     const message = `Copied the ${ids.length > 1 ? 'descriptions of items' : 'description of item'}:`;
-    success({ prefix, message, suffix });
+    success({ message, suffix });
   }
 }
 
